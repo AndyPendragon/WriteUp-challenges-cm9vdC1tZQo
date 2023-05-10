@@ -98,5 +98,15 @@ andy@pc:~/Downloads/pcap$ echo 'Y*************A==' | base64 --decode
 Packet capture analysis
 A twitter authentication session has been captured, you have to retrieve the password.
 ```sh
+Open in Wireshark.
 
+Right click, select: Follow TCP stream.
+
+Find the Authorization field, this shows us :
+Authorization: Basic d****************=
+
+Enter the following in the Linux command line:
+echo  d****************= | base64 --decode
+
+********:********
 ```
