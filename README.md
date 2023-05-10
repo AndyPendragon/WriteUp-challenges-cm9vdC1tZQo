@@ -105,11 +105,11 @@ Open .pcap in Wireshark.
 
 Right click, select: Follow TCP stream.
 
-Find the Authorization field, this shows us :
+...
 Authorization: Basic d****************=
+...
 
-Enter the following in the Linux command line:
-echo  d****************= | base64 --decode
+andy@pc:~$ echo  d****************= | base64 --decode
 
 ********:********
 ```
@@ -128,17 +128,17 @@ Example:
 AB:CD:EF:12:34:56myPhone -> ****************************************
 
 ```sh
-file ch18.bin
+andy@pc:~$ file ch18.bin
 ch18.bin: BTSnoop version 1, HCI UART (H4)
 
-Open in Wireshark 
+andy@pc:~$ sudo wireshark ch18.bin 
 
-(In the tool bar)Wireless > Bluetooth Devices
+(In the toolbar)Wireless > Bluetooth Devices
 0c:b3:19:b9:4f:c6 SamsungE GT-S7390G
 
 Uppercase the MAC Address
 
-echo -n 0C:B3:19:B9:4F:C6GT-S7390G | sha1sum
+andy@pc:~$ echo -n 0C:B3:19:B9:4F:C6GT-S7390G | sha1sum
 ****************************************
 ```
 
@@ -151,17 +151,18 @@ It’s not always a hash.
 Find the "Enable" password.
 
 ```sh 
-We have known md5 hashes:
-
+andy@pc:~$ cat ch15.txt 
+|
 username hub password 7 025017705B3907344E
 username admin privilege 15 password 7 10181A325528130F010D24
 username guest password 7 124F163C42340B112F3830
 password 7 144101205C3B29242A3B3C3927
 enable secret 5 $1$p8Y6$MCdRLBzuGlfOs9S.hXOp0.
+|
 
-Now use http://www.ifm.net.nz/cookbooks/passwordcracker.html
+google-chrome "http://www.ifm.net.nz/cookbooks/passwordcracker.html"
 
-and we get
+And we get
 
 username hub password 7 
 025017705B3907344E = 6sK0_hub
@@ -179,6 +180,7 @@ enable secret 5
 $1$p8Y6$MCdRLBzuGlfOs9S.hXOp0. = 6sK0_??????
 
 Use your reasoning xD
+Or a bruteforce with english word dictionnary
 
 6sK0_******
 ```
