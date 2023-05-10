@@ -101,7 +101,7 @@ Packet capture analysis
 A twitter authentication session has been captured, you have to retrieve the password.
 
 ```sh
-Open in Wireshark.
+Open .pcap in Wireshark.
 
 Right click, select: Follow TCP stream.
 
