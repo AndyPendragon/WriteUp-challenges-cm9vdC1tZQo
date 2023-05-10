@@ -141,3 +141,53 @@ Uppercase the MAC Address
 echo -n 0C:B3:19:B9:4F:C6GT-S7390G | sha1sum
 ****************************************
 ```
+
+### CISCO - password
+
+15 Points
+
+It’s not always a hash.
+
+Find the "Enable" password.
+
+```sh 
+We have known md5 hashes:
+
+username hub password 7 025017705B3907344E
+username admin privilege 15 password 7 10181A325528130F010D24
+username guest password 7 124F163C42340B112F3830
+password 7 144101205C3B29242A3B3C3927
+enable secret 5 $1$p8Y6$MCdRLBzuGlfOs9S.hXOp0.
+
+Now use http://www.ifm.net.nz/cookbooks/passwordcracker.html
+
+and we get
+
+username hub password 7 
+025017705B3907344E = 6sK0_hub
+
+username admin privilege 15 password 7 
+10181A325528130F010D24 = 6sK0_admin
+
+username guest password 7 
+124F163C42340B112F3830 = 6sK0_guest
+
+password 7 
+144101205C3B29242A3B3C3927 = 6sK0_console
+
+enable secret 5 
+$1$p8Y6$MCdRLBzuGlfOs9S.hXOp0. = 6sK0_??????
+
+Use your reasoning xD
+
+6sK0_******
+```
+
+> **Note**
+> Cisco type 7 is crackable 
+> but type 5 is not crackable, so use a bruteforce with a dictionary
+> or a reasoning (in some cases)
+
+> **Tip**
+> Human-chosen Passwords
+> https://csis.gmu.edu/ksun/publications/Password-infocom2016.pdf 
