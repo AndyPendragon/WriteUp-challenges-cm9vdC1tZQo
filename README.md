@@ -95,10 +95,13 @@ andy@pc:~/Downloads/pcap$ echo 'Y*************A==' | base64 --decode
 ### Twitter authentication
 
 15 Points
+
 Packet capture analysis
+
 A twitter authentication session has been captured, you have to retrieve the password.
+
 ```sh
-Open in Wireshark.
+Open .pcap in Wireshark.
 
 Right click, select: Follow TCP stream.
 
