@@ -95,8 +95,11 @@ andy@pc:~/Downloads/pcap$ echo 'Y*************A==' | base64 --decode
 ### Twitter authentication
 
 15 Points
+
 Packet capture analysis
+
 A twitter authentication session has been captured, you have to retrieve the password.
+
 ```sh
 Open in Wireshark.
 
@@ -109,4 +112,32 @@ Enter the following in the Linux command line:
 echo  d****************= | base64 --decode
 
 ********:********
+```
+
+### Bluetooth - Unknown file
+
+15 Points
+
+Packet capture analysis
+
+Your friend working at NSA recovered an unreadable file from a hacker’s computer. The only thing he knows is that it comes from a communication between a computer and a phone.
+
+The answer is the sha-1 hash of the concatenation of the MAC address (uppercase) and the name of the phone.
+
+Example:
+AB:CD:EF:12:34:56myPhone -> 023cc433c380c2618ed961000a681f1d4c44f8f1
+
+```sh
+file ch18.bin
+ch18.bin: BTSnoop version 1, HCI UART (H4)
+
+Open in Wireshark 
+
+(In the tool bar)Wireless > Bluetooth Devices
+0c:b3:19:b9:4f:c6 SamsungE GT-S7390G
+
+Uppercase the MAC Address
+
+echo -n 0C:B3:19:B9:4F:C6GT-S7390G | sha1sum
+****************************************
 ```
